@@ -1,0 +1,11 @@
+﻿@page
+@model WebWeather.Pages.HistoryModel
+@foreach (var item in Model.BazaItems)
+{
+    <p>Nazwa: @item.name</p>
+    <p>Opis: @item.description <img src="@item.icon" alt="Weather Icon"></p>
+    <p>Temperatura: @item.temperature</p>
+    <p>Ciśnienie: @item.pressure</p>
+    <p>Prędkość wiatru: @item.windspeed</p>
+    <hr />
+}

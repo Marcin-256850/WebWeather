@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Witaj w aplikacji webowej. Tutaj dowiesz się o obecnej pogodzie na całym świecie</h1>
+</div>
+<br />
+<br />
+<form method="post">
+    <label for="mojePole">Wprowadź nazwę miasta:</label>
+    <input type="text" name="mojePole" />
+    <button type="submit">Prześlij</button>
+</form>
+@if (Model.Class != null)
+{
+    <br />
+    <p>@Model.Class.Name</p>
+    <p>@Model.Class.Description <img src="@Model.Class.Icon" alt="Weather Icon"></p>
+    <p>@Model.Class.Temperature</p>
+    <p>@Model.Class.Pressure</p>
+    <p>@Model.Class.WindSpeed</p>
+}

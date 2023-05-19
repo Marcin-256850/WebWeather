@@ -9,7 +9,7 @@ using WebWeather;
 
 namespace WebWeather.Migrations
 {
-    [DbContext(typeof(Baza.schowek))]
+    [DbContext(typeof(Baza.Board))]
     [Migration("20230518234505_Index")]
     partial class Index
     {

@@ -1,5 +1,9 @@
 ﻿@page
 @model WebWeather.Pages.HistoryModel
+<form method="post">
+    <button type="submit">Wyczyść historię wyszukiwania</button>
+</form>
+<br />
 @foreach (var item in Model.BazaItems)
 {
     <p>Nazwa: @item.name</p>

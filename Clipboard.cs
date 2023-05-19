@@ -2,7 +2,7 @@
 
 namespace WebWeather
 {
-    public class Class
+    public class Clipboard
     {
         public string Name { get; set; }
         public string Icon { get; set; }

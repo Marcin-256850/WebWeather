@@ -12,11 +12,11 @@ namespace WebWeather
             public string pressure { get; set; }
             public string windspeed { get; set; }
 
-        public class schowek : DbContext
+        public class Board : DbContext
         {
             public virtual DbSet<Baza> tablica { get; set; }
 
-            public schowek()
+            public Board()
             {
                 Database.EnsureCreated();
             }

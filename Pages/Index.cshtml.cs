@@ -10,19 +10,13 @@ namespace WebWeather.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly Baza.schowek _context;
+        private readonly Baza.Board _context;
 
         public string MojePole { get; set; }
-        public Class Class { get; set; }
-        public IndexModel(Baza.schowek context)
+        public Clipboard Class { get; set; }
+        public IndexModel(Baza.Board context)
         {
             _context = context;
-            var allElements = context.tablica.ToList();
-            foreach (var element in allElements)
-            {
-                context.tablica.Remove(element);
-            }
-            context.SaveChanges();
         }
         public void OnGet()
         {
@@ -34,17 +28,12 @@ namespace WebWeather.Pages
             var json = await weatherAPI.downloadData(mojePole);
             WeatherInfo.root info = JsonSerializer.Deserialize<WeatherInfo.root>(json);
 
-            var context = new schowek();
-            var allElements = context.tablica.ToList();
-            foreach (var element in allElements)
-            {
-                context.tablica.Remove(element);
-            }
+            var context = new Board();
             context.SaveChanges();
             context.tablica.Add(new Baza { name = mojePole, icon = "https://openweathermap.org/img/w/" + info.weather[0].icon + ".png", description = info.weather[0].description, temperature = (info.main.temp - 273.5).ToString("n0") + "°C", pressure = info.main.pressure + " hPa", windspeed = info.wind.speed.ToString() + " m/s" });
             context.SaveChanges();
 
-            Class = new Class
+            Class = new Clipboard
             {
                 Name = mojePole,
                 Icon = "https://openweathermap.org/img/w/" + info.weather[0].icon + ".png",

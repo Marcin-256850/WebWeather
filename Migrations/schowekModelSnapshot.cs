@@ -8,7 +8,7 @@ using WebWeather;
 
 namespace WebWeather.Migrations
 {
-    [DbContext(typeof(Baza.schowek))]
+    [DbContext(typeof(Baza.Board))]
     partial class schowekModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
